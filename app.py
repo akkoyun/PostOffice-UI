@@ -28,9 +28,11 @@ def Get_All_Variables():
 					joinedload(Models.Log.level),
 					joinedload(Models.Log.description),
 					joinedload(Models.Log.service),
-				).order_by(desc(Models.Log.Create_Time)).limit(10).all()
+				).order_by(
+					desc(Models.Log.Create_Time)
+				).limit(10).all()
 
-			# Set Badge Classes
+
 			service_badge_classes = {
 				1: 'badge-primary',
 				2: 'badge-secondary',
@@ -42,19 +44,17 @@ def Get_All_Variables():
 				8: 'badge-dark'
 			}
 
-
-
-
 			# Set Data Type List
 			Data_Type_List = [
 				{
-					'Create_Time': log.Create_Time,
-					'Device_Name': log.device.Device_Name,
-					'Log_Level_Name': log.level.Log_Level_Name,
-					'Service_Name': log.service.Service_Name,
-					'Log_Description_Name': log.description.Log_Description_Name,
-					'Service_Badge_Class': service_badge_classes.get(log.Service_ID, 'badge-primary'),
-				} for log in Query_Log
+					'Create_Time': Log.Create_Time,
+					'Log_Level_ID': Log.level.Log_Level_Name,
+					'Log_Description_ID': Log.description.Log_Description,
+					'Service_ID': Log.service.Service_Name,
+					'Service_Badge_Class': service_badge_classes.get(Log.Service_ID, 'badge-primary'),
+					'Device_ID': Log.Device_ID,
+					'Log_Message': Log.Log_Message,
+				} for Log in Query_Log
 			]
 
 			# Get Data Type List
@@ -74,7 +74,7 @@ Variables = Get_All_Variables()
 
 @app.route("/")
 def hello():
-	return render_template("home.html", Variables=Variables)
+	return render_template("home.html", Variables=Variables, name='Gunce')
 
 
 

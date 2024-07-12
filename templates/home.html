@@ -37,14 +37,14 @@
             {% for Variable in Variables %}
             <tr>
               <td>{{ Variable['Create_Time'] }}</td>
-              <td>{{ Variable['Device_Name'] }}</td>
-              <td>{{ Variable['Log_Level_Name'] }}</td>
+              <td>{{ Variable['Device_ID'] }}</td>
+              <td>{{ Variable['Log_Level_ID'] }}</td>
               <td>
                 <span class="badge badge-pill {{ Variable['Service_Badge_Class'] }}">
-                  {{ Variable['Service_Name'] }}
+                  {{ Variable['Service_ID'] }}
                 </span>
               </td>
-              <td>{{ Variable['Log_Description_Name'] }}</td>
+              <td>{{ Variable['Log_Description_ID'] }}</td>
             </tr>
             {% endfor %}
           </tbody>
