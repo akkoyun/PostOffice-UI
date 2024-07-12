@@ -36,7 +36,7 @@ def Get_All_Variables():
 			Data_Type_List = [
 				{
 					'Create_Time': Log.Create_Time,
-					'Log_Level_ID': Log.level.Log_Level_ID,
+					'Log_Level_ID': Log.level.Log_Level_Name,
 					'Log_Description_ID': Log.Log_Description_ID,
 					'Service_ID': Log.Service_ID,
 					'Device_ID': Log.Device_ID,
