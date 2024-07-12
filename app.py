@@ -47,7 +47,7 @@ def Get_All_Variables():
 			# Set Data Type List
 			Data_Type_List = [
 				{
-					'Create_Time': Log.Create_Time,
+					'Create_Time': Log.Create_Time.strftime('%Y-%m-%d %H:%M:%S'),
 					'Log_Level_ID': Log.level.Log_Level_Name,
 					'Log_Level_Badge_Class': badge_classes.get(Log.level.Log_Level_ID, 'badge-primary'),
                     'Log_Description_ID': Log.description.Log_Description,
