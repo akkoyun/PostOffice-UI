@@ -24,8 +24,11 @@ def Get_All_Variables():
 			# Query all data types
 			Query_Variables = DB.query(Models.Variable).all()
 
+			# Set Data Type List
+			Data_Type_List = {Variable.Variable_ID: Variable.Variable_Unit for Variable in Query_Variables}
+
 			# Get Data Type List
-			return [(Variable.Variable_ID, Variable.Variable_Unit) for Variable in Query_Variables]
+			return Data_Type_List
 
 	# Handle Exceptions
 	except SQLAlchemyError as e:
