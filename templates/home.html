@@ -12,21 +12,25 @@
   <body>
     <h1>Welcome, {{ name }}</h1>
     <h2>Variable Listings</h2>
-    <ul>
+
+    <div class="text-center">
+
       {% for Variable in Variables %}
 
 
 
-      <li>
+      <div>
         {{ Variable['Variable_ID'] }} - 
         {{ Variable['Variable_Description'] }} - 
         {{ Variable['Variable_Unit'] }} - 
         {{ Variable['Segment_ID'] }} 
-      </li>
+      </div>
 
 
 
       {% endfor %}
-    </ul>
+
+  </div>
+
   </body>
 </html>
