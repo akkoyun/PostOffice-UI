@@ -67,7 +67,6 @@ def Get_All_Variables():
 		# Return Empty Dictionary
 		return {}
 
-Variables = Get_All_Variables()
 
 
 
@@ -75,6 +74,9 @@ Variables = Get_All_Variables()
 
 @app.route("/")
 def hello():
+
+	Variables = Get_All_Variables()
+
 	return render_template("home.html", Variables=Variables, name='Gunce')
 
 
