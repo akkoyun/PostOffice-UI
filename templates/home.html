@@ -13,22 +13,23 @@
     <h1>Welcome, {{ name }}</h1>
     <h2>Variable Listings</h2>
 
-    <div class="text-center">
 
-      {% for Variable in Variables %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Variable ID</th>
+          <th>Variable Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for Variable in Variables %}
+        <tr>
+          <td>{{ Variable['Variable_ID'] }}</td>
+          <td>{{ Variable['Variable_Description'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
 
-
-
-      <div>
-        {{ Variable['Variable_ID'] }} - 
-        {{ Variable['Variable_Description'] }} - 
-        {{ Variable['Variable_Unit'] }} - 
-        {{ Variable['Segment_ID'] }} 
-      </div>
-
-
-
-      {% endfor %}
 
   </div>
 
