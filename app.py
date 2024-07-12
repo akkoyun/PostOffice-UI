@@ -25,7 +25,9 @@ def Get_All_Variables():
 
 			# Query all data types
 			Query_Log = DB.query(Models.Log).options(
-					joinedload(Models.Log.level)
+					joinedload(Models.Log.level),
+					joinedload(Models.Log.description),
+					joinedload(Models.Log.service),
 				).order_by(
 					desc(Models.Log.Create_Time)
 				).limit(10).all()
@@ -37,8 +39,8 @@ def Get_All_Variables():
 				{
 					'Create_Time': Log.Create_Time,
 					'Log_Level_ID': Log.level.Log_Level_Name,
-					'Log_Description_ID': Log.Log_Description_ID,
-					'Service_ID': Log.Service_ID,
+					'Log_Description_ID': Log.description.Log_Description,
+					'Service_ID': Log.service.Service_Name,
 					'Device_ID': Log.Device_ID,
 					'Log_Message': Log.Log_Message,
 				} for Log in Query_Log
