@@ -1,6 +1,18 @@
-from flask import Flask, render_template
+# Setup Library
+import sys
+sys.path.append('/home/postoffice/PostOffice/src')
 
+# Import Libraries
+from flask import Flask, render_template
+from Setup import Database
+
+# Create Flask App
 app = Flask(__name__)
+
+
+
+
+
 
 JOBS = [
 {
@@ -29,5 +41,10 @@ JOBS = [
 def hello():
 	return render_template("home.html", jobs=JOBS, name='Gunce')
 
+
+
+
+
+# Run the App
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=8000, debug=True)
