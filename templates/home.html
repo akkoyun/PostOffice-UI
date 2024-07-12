@@ -8,40 +8,46 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <style>
+      .container {
+        margin: 20px auto;
+        max-width: 80%;
+      }
+      .table-container {
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome, {{ name }}</h1>
-    <h2>Variable Listings</h2>
+    <div class="container">
+      <h2>Realtime Logs</h2>
 
-
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>TimeStamp</th>
-          <th>Log Level</th>
-          <th>Log Description</th>
-          <th>Service</th>
-          <th>Device</th>
-          <th>Message</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for Variable in Variables %}
-        <tr>
-
-          <td>{{ Variable['Create_Time'] }}</td>
-          <td>{{ Variable['Log_Level_ID'] }}</td>
-          <td>{{ Variable['Log_Description_ID'] }}</td>
-          <td>{{ Variable['Service_ID'] }}</td>
-          <td>{{ Variable['Device_ID'] }}</td>
-          <td>{{ Variable['Log_Message'] }}</td>
-
-        </tr>
-        {% endfor %}
-      </tbody>
-
-
-  </div>
-
+      <div class="table-container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>TimeStamp</th>
+              <th>Log Level</th>
+              <th>Log Description</th>
+              <th>Service</th>
+              <th>Device</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for Variable in Variables %}
+            <tr>
+              <td>{{ Variable['Create_Time'] }}</td>
+              <td>{{ Variable['Log_Level_ID'] }}</td>
+              <td>{{ Variable['Log_Description_ID'] }}</td>
+              <td>{{ Variable['Service_ID'] }}</td>
+              <td>{{ Variable['Device_ID'] }}</td>
+              <td>{{ Variable['Log_Message'] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
