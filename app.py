@@ -23,12 +23,12 @@ def Get_All_Variables():
 		with Database.DB_Session_Scope() as DB:
 
 			# Query all data types
-			Query_Log = DB.query(Models.Log).order_by(desc(Models.Log.Create_Time)).limit(20).all()
+			Query_Log = DB.query(Models.Log).order_by(desc(Models.Log.Create_Time)).limit(10).all()
 
 			# Set Data Type List
 			Data_Type_List = [
 				{
-					'Log_ID': Log.Log_ID,
+					'Create_Time': Log.Create_Time,
 					'Log_Level_ID': Log.Log_Level_ID,
 					'Log_Description_ID': Log.Log_Description_ID,
 					'Service_ID': Log.Service_ID,

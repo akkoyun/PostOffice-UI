@@ -17,19 +17,19 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Log ID</th>
-          <th>Log Level ID</th>
-          <th>Log Description ID</th>
-          <th>Service ID</th>
-          <th>Device ID</th>
-          <th>Log Message</th>
+          <th>TimeStamp</th>
+          <th>Log Level</th>
+          <th>Log Description</th>
+          <th>Service</th>
+          <th>Device</th>
+          <th>Message</th>
         </tr>
       </thead>
       <tbody>
         {% for Variable in Variables %}
         <tr>
 
-          <td>{{ Variable['Log_ID'] }}</td>
+          <td>{{ Variable['Create_Time'] }}</td>
           <td>{{ Variable['Log_Level_ID'] }}</td>
           <td>{{ Variable['Log_Description_ID'] }}</td>
           <td>{{ Variable['Service_ID'] }}</td>
