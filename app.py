@@ -28,9 +28,7 @@ def Get_All_Variables():
 					joinedload(Models.Log.level),
 					joinedload(Models.Log.description),
 					joinedload(Models.Log.service),
-				).order_by(
-					desc(Models.Log.Create_Time)
-				).limit(10).all()
+				).order_by(desc(Models.Log.Create_Time)).limit(10).all()
 
 			# Set Badge Classes
 			service_badge_classes = {
@@ -55,7 +53,7 @@ def Get_All_Variables():
 					'Log_Level_Name': log.level.Log_Level_Name,
 					'Service_Name': log.service.Service_Name,
 					'Log_Description_Name': log.description.Log_Description_Name,
-					'Service_Badge_Class': service_badge_classes.get(log.Service_ID, 'badge-primary'),  # Default olarak 'badge-primary'
+					'Service_Badge_Class': service_badge_classes.get(log.Service_ID, 'badge-primary'),
 				} for log in Query_Log
 			]
 
@@ -76,7 +74,7 @@ Variables = Get_All_Variables()
 
 @app.route("/")
 def hello():
-	return render_template("home.html", Variables=Variables, name='Gunce')
+	return render_template("home.html", Variables=Variables)
 
 
 
