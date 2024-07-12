@@ -4,42 +4,44 @@ sys.path.append('/home/postoffice/PostOffice/src')
 
 # Import Libraries
 from flask import Flask, render_template
-from Setup import Database
+from Setup import Database, Models
+from sqlalchemy.exc import SQLAlchemyError
 
 # Create Flask App
 app = Flask(__name__)
 
 
 
+# Get All Variables
+def Get_All_Variables():
+
+	# Try to open a database session
+	try:
+
+		# Open a database session
+		with Database.DB_Session_Scope() as DB:
+
+			# Query all data types
+			Query_Variables = DB.query(Models.Variable).all()
+
+			# Get Data Type List
+			return [(Variable.Variable_ID, Variable.Variable_Unit) for Variable in Query_Variables]
+
+	# Handle Exceptions
+	except SQLAlchemyError as e:
+
+		# Return Empty Dictionary
+		return {}
+
+Variables = Get_All_Variables()
 
 
-
-JOBS = [
-{
-	"id": 1,
-	"title": "Data Analyst",
-	"location": "Bengaluru, India",
-	"salary": "Rs. 10,00,000"
-},
-{
-	"id": 2,
-	"title": "Data Scientist",
-	"location": "Delhi, India",
-	"salary": "Rs. 15,00,000"
-},
-{
-	"id": 3,
-	"title": "Frontend Engineer",
-	"location": "Remote",
-	"salary": "Rs. 12,00,000"
-}
-]
 
 
 
 @app.route("/")
 def hello():
-	return render_template("home.html", jobs=JOBS, name='Gunce')
+	return render_template("home.html", Variables=Variables, name='Gunce')
 
 
 
