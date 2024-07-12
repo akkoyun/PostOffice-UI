@@ -27,20 +27,20 @@
           <thead>
             <tr>
               <th>TimeStamp</th>
-              <th>Log Level</th>
-              <th>Log Description</th>
-              <th>Service</th>
               <th>Device</th>
+              <th>Log Level</th>
+              <th>Service</th>
+              <th>Log Description</th>
             </tr>
           </thead>
           <tbody>
             {% for Variable in Variables %}
             <tr>
               <td>{{ Variable['Create_Time'] }}</td>
-              <td>{{ Variable['Log_Level_ID'] }}</td>
-              <td>{{ Variable['Log_Description_ID'] }}</td>
-              <td>{{ Variable['Service_ID'] }}</td>
               <td>{{ Variable['Device_ID'] }}</td>
+              <td>{{ Variable['Log_Level_ID'] }}</td>
+              <td>{{ Variable['Service_ID'] }}</td>
+              <td>{{ Variable['Log_Description_ID'] }}</td>
             </tr>
             {% endfor %}
           </tbody>
