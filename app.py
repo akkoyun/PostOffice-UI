@@ -33,18 +33,7 @@ def Get_All_Variables():
 				).limit(10).all()
 
 
-			service_badge_classes = {
-				1: 'badge-primary',
-				2: 'badge-secondary',
-				3: 'badge-success',
-				4: 'badge-danger',
-				5: 'badge-warning',
-				6: 'badge-info',
-				7: 'badge-light',
-				8: 'badge-dark'
-			}
-
-			log_level_badge_classes = {
+			badge_classes = {
 				1: 'badge-primary',
 				2: 'badge-secondary',
 				3: 'badge-success',
@@ -60,10 +49,10 @@ def Get_All_Variables():
 				{
 					'Create_Time': Log.Create_Time,
 					'Log_Level_ID': Log.level.Log_Level_Name,
-					'Log_Level_Badge_Class': log_level_badge_classes.get(Log.level.Log_Level_ID, 'badge-primary'),
+					'Log_Level_Badge_Class': badge_classes.get(Log.level.Log_Level_ID, 'badge-primary'),
                     'Log_Description_ID': Log.description.Log_Description,
 					'Service_ID': Log.service.Service_Name,
-					'Service_Badge_Class': service_badge_classes.get(Log.Service_ID, 'badge-primary'),
+					'Service_Badge_Class': badge_classes.get(Log.Service_ID, 'badge-primary'),
 					'Device_ID': Log.Device_ID,
 					'Log_Message': Log.Log_Message,
 				} for Log in Query_Log
