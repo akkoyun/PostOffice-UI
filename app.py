@@ -25,7 +25,14 @@ def Get_All_Variables():
 			Query_Variables = DB.query(Models.Variable).all()
 
 			# Set Data Type List
-			Data_Type_List = {Variable.Variable_ID: Variable.Variable_Unit for Variable in Query_Variables}
+			Data_Type_List = [
+				{
+					'Variable_ID': Variable.Variable_ID,
+					'Variable_Description': Variable.Variable_Description,
+					'Variable_Unit': Variable.Variable_Unit,
+					'Segment_ID': Variable.Segment_ID
+				} for Variable in Query_Variables
+			]
 
 			# Get Data Type List
 			return Data_Type_List
