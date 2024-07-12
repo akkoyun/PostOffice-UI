@@ -24,8 +24,14 @@
       <tbody>
         {% for Variable in Variables %}
         <tr>
-          <td>{{ Variable['Variable_ID'] }}</td>
-          <td>{{ Variable['Variable_Description'] }}</td>
+
+          <td>{{ Variable['Log_ID'] }}</td>
+          <td>{{ Variable['Log_Level_ID'] }}</td>
+          <td>{{ Variable['Log_Description_ID'] }}</td>
+          <td>{{ Variable['Service_ID'] }}</td>
+          <td>{{ Variable['Device_ID'] }}</td>
+          <td>{{ Variable['Log_Message'] }}</td>
+
         </tr>
         {% endfor %}
       </tbody>
